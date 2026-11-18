@@ -1,0 +1,46 @@
+{
+  "name": "Stack Ratio Lock",
+  "identifier": "com.dfmedrano.sketchplugins.stack-ratio-lock",
+  "description": "Keep the aspect ratio of layers inside stacks when the stack changes width.",
+  "author": "Jorge Medrano",
+  "version": "1.0.0",
+  "appcast": false,
+  "compatibleVersion": "2026.1",
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "Toggle Ratio Lock",
+      "identifier": "toggleRatioLock",
+      "script": "stack-ratio-lock.js",
+      "handler": "toggleRatioLock",
+      "description": "Lock or unlock the aspect ratio of the selected layers inside stacks"
+    },
+    {
+      "name": "Set Width…",
+      "identifier": "setWidth",
+      "script": "stack-ratio-lock.js",
+      "handler": "setWidth",
+      "description": "Resize the selected layers and update the locked ratios inside them"
+    },
+    {
+      "name": "Update Ratios",
+      "identifier": "updateRatios",
+      "script": "stack-ratio-lock.js",
+      "handler": "updateRatios",
+      "description": "Restore locked ratios in the selection, or on the whole page"
+    },
+    {
+      "identifier": "onLayersResized",
+      "script": "stack-ratio-lock.js",
+      "handlers": {
+        "actions": {
+          "LayersResized.finish": "onLayersResized"
+        }
+      }
+    }
+  ],
+  "menu": {
+    "title": "Stack Ratio Lock",
+    "items": ["toggleRatioLock", "setWidth", "-", "updateRatios"]
+  }
+}
